@@ -1,0 +1,54 @@
+/* app/utilities.css */
+.container {
+  max-width: 84.375rem;
+  margin: 0 auto;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+
+.title {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.title.center {
+  text-align: center;
+}
+
+.title.big {
+  color: #ffffff;
+}
+
+.title.small {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.title.baby {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.moreLink {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  flex-shrink: 0;
+  align-items: center;
+  column-gap: 0.75rem;
+  color: #00b207;
+  text-transform: capitalize;
+  transition: color 0.4s;
+}
+
+.sliderArrow {
+  width: 2.8125rem;
+  aspect-ratio: 1;
+  font-size: 1rem;
+  border-radius: 50%;
+  border: 0.0625rem solid #e6e6e6;
+  transition: 0.2s;
+}
+
+.countdownDigits {
+  display: flex;
+}

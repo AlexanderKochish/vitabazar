@@ -1,0 +1,74 @@
+/* components/Hero/Hero.module.css */
+.hero {
+  padding-block: 1.5rem;
+}
+
+.heroContainer {
+  display: flex;
+}
+
+.heroBody {
+  position: relative;
+  display: flex;
+  align-items: center;
+  inline-size: 66%;
+  aspect-ratio: 872/600;
+}
+
+.heroBody::before {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  content: '';
+  border-radius: 0.625rem;
+  background: linear-gradient(
+    99deg,
+    rgba(0, 0, 0, 0.6) 10.4%,
+    rgba(0, 0, 0, 0) 59.43%
+  );
+}
+
+.heroBody .button {
+  align-self: flex-start;
+}
+
+.hero video,
+.hero img {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  border-radius: 0.625rem;
+}
+
+.heroContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-inline-size: 25rem;
+  color: #ffffff;
+}
+
+.heroTitle {
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+/* Media Queries для Hero */
+@media (max-width: 65.625em) {
+  .heroContainer {
+    flex-direction: column;
+  }
+
+  .heroBody {
+    inline-size: 100%;
+  }
+
+  .heroItems {
+    inline-size: 100%;
+    flex-direction: row;
+  }
+}

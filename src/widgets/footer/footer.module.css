@@ -1,0 +1,94 @@
+/* components/Footer/Footer.module.css */
+.footer {
+  background-color: #1a1a1a;
+  color: #808080;
+}
+
+.footerBottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.9375rem;
+  border-block-start: 0.0625rem solid #333333;
+}
+
+.footerPayments {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.bodyFooter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 1.5625rem;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  flex: 0 1 21.25rem;
+}
+
+.footerContent .logoText {
+  color: #ffffff;
+}
+
+.footerContacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footerTel,
+.footerMail {
+  color: #ffffff;
+  border-block-end: 0.09375rem solid #00b207;
+  transition: border-block-end 0.2s;
+}
+
+.footerLabel {
+  color: #ffffff;
+}
+
+.footerLabel:not(:last-child)::before {
+  display: none;
+}
+
+.footerList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.75rem;
+}
+
+.footerLink {
+  transition: color 0.2s;
+}
+
+/* Media Queries для Footer */
+@media (max-width: 41.875em) {
+  .footerBottom {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 23.4375em) {
+  .footerCol {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .footerLabel {
+    display: flex;
+    flex-direction: row-reverse;
+    column-gap: 0.625rem;
+    justify-content: center;
+  }
+
+  .footerLabel:not(:last-child)::before {
+    display: block;
+    font-size: 0.75rem;
+  }
+}

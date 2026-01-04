@@ -1,0 +1,78 @@
+/* components/Tabs/Tabs.module.css */
+.tabs:not(.tabInit) [data-fls-tabs-titles] > * {
+  cursor: default;
+}
+
+.tabsNavigation {
+  display: flex;
+  justify-content: center;
+  border-block-end: 0.0625rem solid #e5e5e5;
+}
+
+.tabsTitle {
+  padding: 1rem;
+  font-size: 1rem;
+  border-block-end: 0.125rem solid transparent;
+  color: #808080;
+  font-weight: 500;
+  transition: border 0.2s;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tabsTitle:focus-visible {
+  outline: 0.125rem solid #00b207;
+  outline-offset: 0.125rem;
+  border-radius: 0.25rem;
+}
+
+.tabsTitle.tabActive {
+  border-block-end: 0.125rem solid #00b207;
+  color: #1a1a1a;
+}
+
+.tabsBody[hidden] {
+  display: none;
+}
+
+.tabsBody:not([hidden]) {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Стили для спойлеров */
+.tabs.tabSpoller .tabsNavigation {
+  border-block-end: none;
+}
+
+.tabs.tabSpoller .tabsTitle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-block-end: 0.0625rem solid #e5e5e5;
+  transition: all 0.2s;
+}
+
+/* Hover эффекты */
+@media (any-hover: hover), (pointer: fine) {
+  .tabsTitle:hover {
+    color: #00b207;
+  }
+
+  .tabs.tabSpoller .tabsTitle:hover {
+    background-color: rgba(247, 247, 247, 0.5);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.625rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

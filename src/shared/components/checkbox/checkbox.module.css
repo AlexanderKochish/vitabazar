@@ -1,0 +1,56 @@
+/* components/Checkbox/Checkbox.module.css */
+.checkbox {
+  display: inline-flex;
+  position: relative;
+  align-self: flex-start;
+}
+
+.checkboxInput {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.checkboxInput:focus-visible + .checkboxText {
+  outline: 0.0625rem solid #000;
+}
+
+.checkboxInput:checked + .checkboxText::after {
+  opacity: 1;
+}
+
+.checkboxText {
+  cursor: pointer;
+  position: relative;
+  gap: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.checkboxText:before,
+.checkboxText:after {
+  flex-shrink: 0;
+  align-self: flex-start;
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  color: #ffffff;
+  border-radius: 0.1875rem;
+}
+
+.checkboxText:before {
+  content: '';
+  border: 0.0625rem solid #cccccc;
+}
+
+.checkboxText::after {
+  position: absolute;
+  content: '';
+  background: url('/assets/img/check.svg') no-repeat center center;
+  background-size: 0.75rem;
+  border: 0.0625rem solid #00b207;
+  background-color: #00b207;
+  opacity: 0;
+  transition: opacity 0.2s;
+}

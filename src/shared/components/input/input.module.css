@@ -1,0 +1,31 @@
+/* components/Input/Input.module.css */
+.input {
+  display: block;
+  block-size: 2.8125rem;
+  border-radius: 0.375rem 0 0 0.375rem !important;
+  padding-inline-start: 2.75rem;
+  padding-inline-end: 0.625rem;
+  border: 0.0625rem solid #eee;
+  caret-color: inherit;
+}
+
+.input:focus-visible {
+  outline: none;
+  border: 0.0625rem solid #002603;
+}
+
+.input[placeholder]:not([data-fls-placeholder-nohiden])::placeholder {
+  color: #808080;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  transition: opacity 0.1s;
+}
+
+.input[placeholder]:not([data-fls-placeholder-nohiden]):focus::placeholder {
+  opacity: 0;
+}
+
+textarea.input {
+  resize: vertical;
+  padding: 0rem 0rem;
+}

@@ -1,0 +1,53 @@
+/* components/Quantity/Quantity.module.css */
+.quantity {
+  padding: 0.5rem;
+  display: inline-flex;
+  border: 0.0625rem solid #e6e6e6;
+  border-radius: 10.625rem;
+}
+
+.quantityButton {
+  position: relative;
+  inline-size: 2.125rem;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #e6e6e6;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.quantityButton::before,
+.quantityButton::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all 0.3s ease 0s;
+  margin: 0rem 0rem 0rem -0.40625rem;
+  background-color: #1a1a1a;
+  width: 0.75rem;
+  height: 0.09375rem;
+}
+
+.quantityButton.plus::before {
+  transform: rotate(-90deg);
+}
+
+.quantityInput {
+  flex: 1 1 auto;
+}
+
+.quantityInput input {
+  height: 100%;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* Hover эффекты */
+@media (any-hover: hover), (pointer: fine) {
+  .quantityButton:hover {
+    background-color: #cccccc;
+  }
+}

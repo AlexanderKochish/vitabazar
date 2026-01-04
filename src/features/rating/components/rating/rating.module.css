@@ -1,0 +1,90 @@
+/* components/Rating/Rating.module.css */
+.rating {
+  display: flex;
+}
+
+.rating.xl {
+  --starW: 0.75rem;
+  --starH: 0.75rem;
+}
+
+.rating.xxl {
+  --starW: 0.875rem;
+  --starH: 0.875rem;
+}
+
+.rating.xxxl {
+  --starW: 1rem;
+  --starH: 1rem;
+}
+
+.ratingItems {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--starGap);
+}
+
+.ratingItem {
+  flex: 0 0 var(--starW);
+  width: var(--starW);
+  height: var(--starH);
+  position: relative;
+  background: url('/assets/img/rating/star.svg') 0 0 / var(--starW) no-repeat;
+  transition: all 0.3s;
+}
+
+.ratingItem.active {
+  background: url('/assets/img/rating/star-active.svg') 0 0 / var(--starW)
+    no-repeat;
+}
+
+.ratingItem span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: var(--starH);
+  background: url('/assets/img/rating/star-active.svg') 0 0 / var(--starW)
+    no-repeat;
+}
+
+.ratingItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: var(--starGap);
+  transform: translateX(100%);
+}
+
+[data-rating='set'] .ratingItem:not(:last-child)::after {
+  cursor: pointer;
+}
+
+.ratingInput {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: block;
+}
+
+[data-fls-rating='set'] .ratingInput {
+  cursor: pointer;
+}
+
+/* Hover эффекты */
+@media (any-hover: hover) {
+  [data-fls-rating='set'] .ratingItems:hover .ratingItem {
+    background: url('/assets/img/rating/star-active.svg') 0 0 / var(--starW)
+      no-repeat;
+  }
+
+  [data-fls-rating='set'] .ratingItem:hover ~ .ratingItem {
+    background: url('/assets/img/rating/star.svg') 0 0 / var(--starW) no-repeat;
+  }
+
+  [data-fls-rating='set'] .ratingItem:hover ~ .ratingItem span {
+    display: none;
+  }
+}

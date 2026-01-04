@@ -1,0 +1,434 @@
+/* spollers.module.css */
+.spollers {
+  display: grid;
+  gap: 0.9375rem;
+}
+
+.spollersItem {
+  font-size: 1.25rem;
+}
+
+.spollersTitle {
+  width: 100%;
+  cursor: default;
+  text-align: left;
+  border: 0.0625rem solid #eee;
+  padding: 0.625rem 0.9375rem;
+  border-radius: 0.3125rem;
+  position: relative;
+  list-style: none;
+}
+
+.spollerInit .spollersTitle {
+  cursor: pointer;
+}
+
+.spollerInit .spollersTitle::before,
+.spollerInit .spollersTitle::after {
+  content: '';
+  position: absolute;
+  right: 0.625rem;
+  top: 50%;
+  background-color: #000;
+  height: 0.125rem;
+  width: 0.9375rem;
+  transition: transform 0.5s ease 0s;
+}
+
+.spollerInit .spollersTitle::before {
+  transform: translate(-75%, -50%) rotate(40deg);
+}
+
+.spollerInit .spollersTitle::after {
+  transform: translate(0, -50%) rotate(-40deg);
+}
+
+.spollerInit .spollersTitle.spollerActive::before {
+  transform: translateX(-75%) rotate(-40deg);
+}
+
+.spollerInit .spollersTitle.spollerActive::after {
+  transform: rotate(40deg);
+}
+
+.spollersBody {
+  padding: 1.25rem;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid #eee;
+}
+
+/* header.module.css */
+/* Menu styles */
+.menuBody {
+  block-size: 100%;
+}
+
+.menuList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 2rem;
+  min-block-size: 100%;
+}
+
+.menuItem {
+  position: relative;
+  display: flex;
+  column-gap: 0.625rem;
+}
+
+.menuItem.active {
+  flex-wrap: wrap;
+}
+
+.menuItem.active .menuLink {
+  color: #ffffff;
+}
+
+.menuItem.active .subMenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  display: block;
+}
+
+.menuItem.active .menuButton::before {
+  color: #ffffff;
+  transform: rotate(180deg);
+}
+
+.menuLink {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #999999;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: color 0.2s;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.menuButton::before {
+  font-size: 0.5rem;
+  color: #999999;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+
+.iconMenu {
+  display: none;
+}
+
+.subMenu {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 100%;
+  z-index: 2;
+  min-inline-size: 12.5rem;
+  padding: 0.625rem;
+  color: #ffffff;
+  background-color: #1a1a1a;
+  border-radius: 0 0 0.5rem 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.subMenu > *:not(:last-child) {
+  margin-block-end: 0.75rem;
+}
+
+.subMenuLink {
+  text-transform: capitalize;
+}
+
+/* Header styles */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.topHeader {
+  padding-block: 0.75rem;
+  font-size: 0.75rem;
+  color: #666666;
+  border-block-end: 0.0625rem solid #e5e5e5;
+  line-height: 1.3;
+  background-color: #ffffff;
+}
+
+.topHeaderContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem 1.25rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addressTopHeaderLink {
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.addressTopHeaderLink::before {
+  flex-shrink: 0;
+  align-self: flex-start;
+  font-size: 0.9375rem;
+}
+
+.addressTopHeaderLinkIconLocation {
+  /* Добавьте здесь стили для иконки локации */
+}
+
+.actionsTopHeader {
+  display: flex;
+  align-items: center;
+  column-gap: 1.25rem;
+}
+
+.actionsTopHeaderUtils {
+  display: flex;
+  column-gap: 1.25rem;
+  align-items: center;
+}
+
+.actionsTopHeaderUtils::after {
+  content: '';
+  inline-size: 0.0625rem;
+  block-size: 0.9375rem;
+  background-color: #e6e6e6;
+}
+
+.actionsTopHeader .linksAuth {
+  display: flex;
+  column-gap: 0.25rem;
+  transition: 0.2s;
+}
+
+.actionsTopHeader .linksAuthSignIn,
+.actionsTopHeader .linksAuthSignUp {
+  text-transform: capitalize;
+}
+
+.middleHeader {
+  background-color: #ffffff;
+}
+
+.middleHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.9375rem;
+}
+
+.buttonSearch {
+  flex-shrink: 0;
+  block-size: 2.8125rem;
+  border-radius: 0 0.375rem 0.375rem 0;
+  padding-inline: 1.25rem;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #00b207;
+  line-height: 1.2;
+  transition: background-color 0.2s;
+}
+
+.logo {
+  display: flex;
+  flex-shrink: 0;
+  column-gap: 0.5rem;
+  align-items: center;
+}
+
+.logoIcon {
+  inline-size: 2rem;
+  aspect-ratio: 1;
+}
+
+.logoText {
+  color: #002603;
+  letter-spacing: -0.06rem;
+  font-weight: 500;
+  line-height: 1.18;
+}
+
+.userActions {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.userActionsFavourite {
+  display: flex;
+  column-gap: 1rem;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.userActionsFavourite::before {
+  font-size: 1.6875rem;
+}
+
+.userActionsFavourite:not(:last-child)::after {
+  content: '';
+  inline-size: 0.0625rem;
+  block-size: 1.5rem;
+  background-color: #cccccc;
+}
+
+.userActionsFavouriteIconFavourite {
+  /* Добавьте здесь стили для иконки избранного */
+}
+
+.cartHeader {
+  display: flex;
+  align-items: center;
+  column-gap: 0.75rem;
+}
+
+.cartHeaderIcon {
+  position: relative;
+}
+
+.cartHeaderIcon::before {
+  font-size: 1.6875rem;
+}
+
+.cartHeaderIconIconCart {
+  /* Добавьте здесь стили для иконки корзины */
+}
+
+.cartHeaderIcon span {
+  position: absolute;
+  inset-inline-end: -0.1875rem;
+  inset-block-start: 0.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 1.125rem;
+  aspect-ratio: 1;
+  padding: 0.1875rem;
+  border-radius: 50%;
+  border: 0.0625rem solid #ffffff;
+  background-color: #2c742f;
+  font-size: 0.625rem;
+  color: #ffffff;
+  line-height: 1;
+  opacity: 0.95;
+  transition: background-color 0.2s;
+}
+
+.cartHeaderBody {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.4375rem;
+  flex: 0 0 6.25rem;
+}
+
+.cartHeaderLabel {
+  font-size: 0.6875rem;
+  color: #4d4d4d;
+  line-height: 1.2;
+}
+
+.cartHeaderValue {
+  font-weight: 500;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.bottomHeader {
+  background-color: #1a1a1a;
+}
+
+.bottomHeaderContainer {
+  display: flex;
+  gap: 0.625rem 1.25rem;
+  justify-content: space-between;
+}
+
+.bottomHeaderTel {
+  display: flex;
+  flex-shrink: 0;
+  column-gap: 0.5rem;
+  align-items: center;
+  align-self: flex-start;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.bottomHeaderTel.dynamic {
+  color: #333333;
+}
+
+.bottomHeaderTel.dynamic span {
+  display: none;
+}
+
+.bottomHeaderTel::before {
+  display: block;
+  font-size: 1.25rem;
+  transition: color 0.2s;
+}
+
+.bottomHeaderTelIconPhone {
+  /* Добавьте здесь стили для иконки телефона */
+}
+
+/* Search Header */
+.searchHeaderForm {
+  /* Добавьте базовые стили для формы поиска */
+}
+
+.searchHeaderFormIconSearch {
+  /* Добавьте стили для иконки поиска */
+}
+
+.input {
+  /* Базовые стили для input */
+}
+
+.searchHeaderInput {
+  /* Специфичные стили для input поиска */
+}
+
+/* Media queries и дополнительные стили */
+@media (max-width: 767.98px) {
+  .iconMenu {
+    display: block;
+  }
+
+  .menuOpen .menuBody {
+    display: block;
+  }
+
+  .menuList {
+    flex-direction: column;
+  }
+
+  .actionsTopHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .middleHeaderContainer {
+    flex-wrap: wrap;
+  }
+
+  .bottomHeaderContainer {
+    flex-direction: column;
+  }
+}

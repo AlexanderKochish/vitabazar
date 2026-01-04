@@ -1,0 +1,65 @@
+/* components/Popup/Popup.module.css */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 1.875rem 0.625rem;
+  transition: visibility 0.8s ease 0s;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.popup.active {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
+}
+
+[data-fls-popup-active] [data-fls-popup-body] {
+  visibility: visible;
+  transform: scale(1);
+}
+
+.popupWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.popupBody {
+  position: relative;
+  visibility: hidden;
+  transform: scale(0);
+  transition:
+    transform 0.3s ease 0s,
+    visibility 0.3s ease 0s;
+  background: #ffffff;
+  width: 100%;
+  max-width: 82.5rem;
+  border-radius: 1.25rem;
+}
+
+.popupClose {
+  position: absolute;
+  inset-inline-end: 0.9375rem;
+  inset-block-start: -1.5625rem;
+  z-index: 120;
+}
+
+.popupClose svg {
+  inline-size: 1.25rem;
+}
+
+/* Варианты Popup */
+.popup.cart {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}

@@ -1,0 +1,48 @@
+/* components/Carousel/Carousel.module.css */
+.carousel {
+  display: block;
+}
+
+.carouselPrev,
+.carouselNext {
+  position: absolute;
+  inline-size: 100%;
+}
+
+.carouselPrev {
+  inset-block-start: 0;
+}
+
+.carouselPrev::before {
+  transform: rotate(-180deg);
+}
+
+.carouselNext {
+  inset-block-end: 0;
+}
+
+.carouselThumbs,
+.carouselThumbsPopup {
+  position: relative;
+  flex: 0 0 5rem;
+  min-height: 0;
+}
+
+.carouselImage img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+  will-change: transform;
+  transition: transform 0.4s;
+  transform: translateZ(0);
+}
+
+/* Media Queries для Carousel */
+@media (min-width: 30.625em) {
+  .carousel {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.75rem;
+    align-items: center;
+  }
+}

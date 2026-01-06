@@ -5,9 +5,12 @@ import { billingSchema, billingSchemaType } from '../../lib/zod/billing.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import ControlledInput from '@/shared/components/controlled-input/controlled-input'
 import { useCartStore, useCartTotal } from '@/features/cart/store/cart'
+import { CheckoutPayload } from '../../types/types'
+import { useCheckout } from '../../hooks/useCheckout'
 
 const BillingForm = () => {
   const { items, updateQty } = useCartStore()
+  const { mutate } = useCheckout()
   const { control, handleSubmit } = useForm<billingSchemaType>({
     defaultValues: {
       user_name: '',
@@ -27,7 +30,7 @@ const BillingForm = () => {
   })
   const cartTotal = useCartTotal()
   const onSubmit = async (data: billingSchemaType) => {
-    const payload = {
+    const payload: CheckoutPayload = {
       billing: data,
       items: items.map((item) => ({
         product_id: item.id,
@@ -36,20 +39,7 @@ const BillingForm = () => {
       total: cartTotal,
     }
 
-    const res = await fetch('/api/checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    })
-
-    const result = await res.json()
-
-    if (!res.ok) {
-      console.error(result)
-      return
-    }
-
-    console.log('ORDER CREATED:', result)
+    mutate(payload)
   }
 
   return (

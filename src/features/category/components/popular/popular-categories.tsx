@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from './popular-categories.module.css'
 import { fetchCategories } from '../../actions/actions'
 
 export default async function PopularCategories() {

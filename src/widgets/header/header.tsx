@@ -2,20 +2,10 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import styles from './header.module.css'
-import Logo from '../logo/logo'
 import LanguageSelector from '../language-selector/language-selector'
 import CurrencySelector from '../currency-selector/currency-selector'
-import SearchBar from '../search-bar/search-bar'
-import UserActions from '../user-actions/user-actions'
-import Navigation from '../navigation/navigation'
-import { useCart } from '@/features/cart/hooks/use-cart'
-import {
-  useCartCount,
-  useCartStore,
-  useCartTotal,
-} from '@/features/cart/store/cart'
+import { useCartCount, useCartTotal } from '@/features/cart/store/cart'
+import s from './header.module.css'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
